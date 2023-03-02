@@ -8,7 +8,7 @@ function App() {
   // react에서 변수처럼 자료를 보관할 수 있는 state문법
   let [count, setCount] = useState(0);
   let [counting, setCounting] = useState(0);
-  // 한 곳에다가 여라가지 자료를 저장하고 싶을 때 Array[사용]
+  // 한 곳에다가 여러가지 자료를 저장하고 싶을 때 Array[사용]
   let [title, setTitle] = useState(["DW아카데미 502호", "DW아카데미 503호", "DW아카데미 501호"]);
   // jsx문법에서는 전체를 감싸는 태그 안에 다른 태그들을 만들 수 있음 
   // jsx문법에서는 클로징 태그 필수
