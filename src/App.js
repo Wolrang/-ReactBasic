@@ -10,9 +10,10 @@ function App() {
   let [counting, setCounting] = useState([0, 0, 0]);
   // 한 곳에다가 여러가지 자료를 저장하고 싶을 때 Array[사용]
   let [title, setTitle] = useState(["DW아카데미 502호", "DW아카데미 503호", "DW아카데미 501호"]);
-  let [name, setName] = useState(["김상현"])
+  let [name, setName] = useState(["김상현", "김상현", "김상현"])
   // let [bgColor, setbgColor] = useState('');
   let [bgColor, setbgColor] = useState('');
+  let [up, setUp] = useState([' a ','b ','c'])
 
   let changeBg = () => {
     let newBg = bgColor == 'white' ? 'skyblue' : 'white';
@@ -67,7 +68,7 @@ function App() {
                 copy[i] = copy[i] + 1
                 setCounting(copy)
               }}>Click me</button>
-              <p>안녕하세요 저는 {name}입니다.</p>
+              <p>안녕하세요 저는 {name[i]}입니다.</p>
             </div>
           )
         })
@@ -119,14 +120,40 @@ function App() {
       }}>배경색변경</button>
 
       <button className='button' onClick={changeBg}>배경색변경</button>
-
-      <button className='button' onClick={() =>{
-        setName("Smith");
+      <button className='button' onClick={() => {
+        let copy = [...name];
+        copy = ['aaa', 'bbb', 'ccc'];
+        setName(copy);
       }}>이름변경</button>
-      
+
+      {
+        ['sang ', 'hyeon ', 'kim'].map(function(e) {
+          return e.toUpperCase();
+        })
+      }
+
+      {
+        up.map(function (e) {
+          return e.toUpperCase();          
+        })
+      }
+
+
+      {/* {
+        name.map(function (a, i) {
+          return (
+            <button onClick={() => {
+              let copy = [...name];
+              copy[i] = "Smith"
+              setName(copy);
+            }}>이름변경</button>
+          )
+        })
+      } */}
 
     </div>
   );
 }
 
 export default App; 4
+
