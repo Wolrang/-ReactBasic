@@ -127,6 +127,18 @@ function App() {
       }}>이름변경</button>
 
       {
+        name.map(function (a, i) {
+          return (
+            <button className='button' key={i} onClick={() => {
+              let copy = [...name];
+              copy[i] = "Smith"
+              setName(copy);
+            }}>이름변경</button>
+          )
+        })
+      }
+
+      {
         ['sang ', 'hyeon ', 'kim'].map(function(e) {
           return e.toUpperCase();
         })
@@ -137,19 +149,6 @@ function App() {
           return e.toUpperCase();          
         })
       }
-
-
-      {/* {
-        name.map(function (a, i) {
-          return (
-            <button onClick={() => {
-              let copy = [...name];
-              copy[i] = "Smith"
-              setName(copy);
-            }}>이름변경</button>
-          )
-        })
-      } */}
 
     </div>
   );
