@@ -4,13 +4,18 @@
   box-sizing: border-box;
 }
 
+.App {
+  width: 420px;
+  padding-left: 10px;
+}
+
 .title {
   width: 400px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin: 10px;
+  margin-top: 10px;
 }
 
 .button {
-  margin-left: 10px;
+  margin: 10px;
 }

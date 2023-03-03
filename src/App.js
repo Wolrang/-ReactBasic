@@ -10,10 +10,17 @@ function App() {
   let [counting, setCounting] = useState(0);
   // 한 곳에다가 여러가지 자료를 저장하고 싶을 때 Array[사용]
   let [title, setTitle] = useState(["DW아카데미 502호", "DW아카데미 503호", "DW아카데미 501호"]);
+  // let [bgColor, setbgColor] = useState('');
+  let [bgColor, setbgColor] = useState('');
+
+  let changeBg = () => {
+    let newBg = bgColor == 'white' ? 'dodgerblue' : 'white';
+    setbgColor(newBg)
+  }
   // jsx문법에서는 전체를 감싸는 태그 안에 다른 태그들을 만들 수 있음 
   // jsx문법에서는 클로징 태그 필수
   return (
-    <div className="App">
+    <div className="App" style={{backgroundColor : bgColor}}>
       <h1>Hello, {user}!</h1>
       <p>This is a React App</p>
 
@@ -58,9 +65,16 @@ function App() {
 
       <button className='button' onClick={()=> {
         let copy = [...title];
-        copy = copy.sort();
+        copy.sort();
         setTitle(copy);
       }}>글 정렬</button>
+
+      <button className='button' onClick={()=>{
+        setbgColor('dodgerblue');
+        setbgColor(bgColor ? '' : 'dodgerblue')
+      }}>배경색변경</button>
+
+      <button className='button' onClick={changeBg}>배경색변경</button>
 
     </div>
   );
