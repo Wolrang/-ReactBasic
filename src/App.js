@@ -1,157 +1,56 @@
 /* eslint-disable */
-import logo from './logo.svg';
 import './App.css';
+import State from './component/State';
 import {useState} from 'react'
 
 function App() {
-  let user = 'World';
-  // react에서 변수처럼 자료를 보관할 수 있는 state문법
-  let [count, setCount] = useState(0);
-  let [counting, setCounting] = useState([0, 0, 0]);
-  // 한 곳에다가 여러가지 자료를 저장하고 싶을 때 Array[사용]
-  let [title, setTitle] = useState(["DW아카데미 502호", "DW아카데미 503호", "DW아카데미 501호"]);
-  let [name, setName] = useState(["김상현", "김상현", "김상현"])
-  // let [bgColor, setbgColor] = useState('');
-  let [bgColor, setbgColor] = useState('');
-  let [up, setUp] = useState([' a ','b ','c'])
+  // State에 반응하기 때문에 react
+  // 리액트는 변수가 값이 업데이트 됐다고 UI를 재렌더링 하지 않는다.
+  // State가 변경 되었을 때만 UI를 재랜더링 한다.
+  let num = 0;
 
-  let changeBg = () => {
-    let newBg = bgColor == 'white' ? 'skyblue' : 'white';
-    setbgColor(newBg)
-  };
-
-  // map함수가 array의 갯수만큼 return을 반복한다.
-  // 매개변수(파라미터)를 만들어주면 함수 파라미터가 array자료 안에 있는 데이터가 된다.
-  [1, 2, 3].map(function(num) {
-    return console.log(num);
-  });
-
-  // let num = [1, 2, 3, 4, 5];
-  // let newNum = num.map((num) => num + 1);
-  // let newNum2 = num.map((num) => num * 3);
-  // console.log(num);
-  // console.log(newNum);
-  // console.log(newNum2);
-
-  let num = [1, 2, 3, 4, 5];
-  let newArr = num.map(function(element) {
-    return element * 3;
-  });
-  console.log(newArr)
-
-  for(let  i = 0; i < num.length; i++) {
-    num[i] = num[i] * 3;
+  // useState
+  // 1. import {useState} from 'react'
+  // State를 사용하기 위해서 react에서 useState를 데려온다.
+  // useState => 리액트에서 제공하는 함수 중 하나 (훅)
+  // useState 함수가 무엇을 리턴 하느냐?
+  // 아이템이 2개 들어있는 배열(Array)
+  // 1. 초기값을 담고있는 State 변수
+  // 2. state값을 변경할 수 있도록 도와주는 set함수
+  // 이 두가지 값을 배열로 리턴한다.
+  // state를 변수처럼 사용하면 안되고, 값을 변경할 때는 항상 변경함수를 호출하고 값을 그 안에 집어넣어야 한다.
+  const [count, setCount] = useState(0);
+  let increase = () => {
+    num = num + 1;
+    setCount(count + 1)
+    // state값이 업데이트 될 때 마다 function App을 다시 실행 시키면서 변경된 UI를 업데이트
+    // 변수는 값을 저장하지 않고 함수가 호출 될 때마다 초기화 된다.
+    console.log("num", num, "state", count);
+    console.log(count);
   }
-  console.log(num);
-  // jsx문법에서는 전체를 감싸는 태그 안에 다른 태그들을 만들 수 있음 
-  // jsx문법에서는 클로징 태그 필수
-  return (
-    <div className="App" style={{backgroundColor : bgColor}}>
-      <h1>Hello, {user}!</h1>
-      <p>This is a React App</p>
 
-      <div>
-        <p>클릭시 + {count}</p>
-        <button onClick={()=>{setCount(count + 1)}}>Click me</button>
-      </div>
+  // console.log 두 개 찍히는 이유
+  // App.js에 작성한 내용은 index.js를 거쳐서 'root'라는 아이디 값을 가진 div에 그려진다.
+  // StrictMode
+  // 리액트로 개발할 때, 잠재적인 문제가 있는지 검사 해주는 모드
+  // StrictMode 스스로 문제점을 찾아주는건 아니지만, 문제가 될 수 있는 함수를 두 번 실행해서 쉽게 문제를 찾을 수 있게 도와주는 역할
+  // index.js => index.html파일과 App.js 파일을 연결해주는 연결고리
+  let a = 123;
+  console.log(a);
 
-      {
-        title.map(function (a, i) {
-
-          return (
-            <div className="title" key={i}>
-              <h4>{title[i]}</h4>
-              {/* <h4>{a}</h4> */}
-              <span>👍 + {counting[i]}</span>
-              <button onClick={() => {
-                let copy = [...counting]
-                copy[i] = copy[i] + 1
-                setCounting(copy)
-              }}>Click me</button>
-              <p>안녕하세요 저는 {name[i]}입니다.</p>
-            </div>
-          )
-        })
-      }
-
-      {/* <div className="title">
-        <h4>{title[0]}</h4>
-        <span>👍 + {counting}</span>
-        <button onClick={()=>{setCounting(counting + 1)}}>Click me</button>
-        <p>안녕하세요 저는 김상현입니다.</p>
-      </div>
-
-      <div className="title">
-        <h4>{title[1]}</h4>
-        <span>👍 + {counting}</span>
-        <button onClick={()=>{setCounting(counting + 1)}}>Click me</button>
-        <p>안녕하세요 저는 김상현입니다.</p>
-      </div>
-
-      <div className="title">
-        <h4>{title[2]}</h4>
-        <span>👍 + {counting}</span>
-        <button onClick={()=>{setCounting(counting + 1)}}>Click me</button>
-        <p>안녕하세요 저는 김상현입니다.</p>
-      </div> */}
-
-      {/* <button onClick={()=>{setTitle(["리액트 너무 재밌어요!", "DW아카데미 503호", "DW아카데미 501호"])}}>글 제목 변경</button> */}
-      <button className='button' onClick={()=>{
-        let copy = [...title];
-        copy[0] = "리액트 너무 재밌어요!";
-        setTitle(copy);
-      }}>글 제목 변경</button>
-
-      <button className='button' onClick={()=> {
-        let copy = [...title];
-        copy[1] = "리액트 너무 헷갈려요!";
-        setTitle(copy);
-      }}>두번째 글 제목 변경</button>
-
-      <button className='button' onClick={()=> {
-        let copy = [...title];
-        copy.sort();
-        setTitle(copy);
-      }}>글 정렬</button>
-
-      <button className='button' onClick={()=>{
-        setbgColor('skyblue');
-        setbgColor(bgColor ? '' : 'skyblue')
-      }}>배경색변경</button>
-
-      <button className='button' onClick={changeBg}>배경색변경</button>
-      <button className='button' onClick={() => {
-        let copy = [...name];
-        copy = ['aaa', 'bbb', 'ccc'];
-        setName(copy);
-      }}>이름변경</button>
-
-      {
-        name.map(function (a, i) {
-          return (
-            <button className='button' key={i} onClick={() => {
-              let copy = [...name];
-              copy[i] = "Smith"
-              setName(copy);
-            }}>이름변경</button>
-          )
-        })
-      }
-
-      {
-        ['sang ', 'hyeon ', 'kim'].map(function(e) {
-          return e.toUpperCase();
-        })
-      }
-
-      {
-        up.map(function (e) {
-          return e.toUpperCase();          
-        })
-      }
-
-    </div>
-  );
+  // State의 값 반영이 한 박자씩 늦는 이유
+  // State값이 변경되어 함수가 호출 될 때 바로 변경 값을 실행 하는게 아니라 
+  // 변경 되어야 하는 set함수들을 싹 모아서 함수가 끝나고 나서 한번에 처리한다.(비동기적)
+  // State 주의할 점
+  
+  // State는 기존 값을 잃어버리지 않고 기억하고 있다.
+ return (
+  <div className='App'>
+    {/* <State></State> */}
+    <h1>{count}</h1>
+    <button onClick={increase}>+1</button>
+  </div>
+ )
 }
 
 export default App;
