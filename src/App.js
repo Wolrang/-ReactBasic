@@ -84,6 +84,7 @@ function App() {
     <Comment user='리리리' Comment='Lorem'></Comment> */}
 
     <CommentList></CommentList>
+    
 
   </div>
  );
