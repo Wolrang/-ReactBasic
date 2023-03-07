@@ -1,0 +1,95 @@
+import React from 'react'
+// import './Comment.css'
+import logo from './images/냐오하.jpg'
+
+const styles = {
+  wrapper: {
+    display: 'flex',
+    margin: '8px',
+    padding: '8px',
+    border: '1px solid #ccc',
+    borderRadius: '16px'
+  },
+  img: {
+    width: '50px',
+    height: '50px',
+    borderRadius: '50%'
+  },
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    marginLeft: '8px'
+  },
+  nameText: {
+    fontSize: '18px',
+    fontWeight: 'bold'
+  },
+  commentText: {
+    fontSize: '14px'
+  }
+}
+
+// const wrapper = {
+//   display: 'flex',
+//   margin: '8px',
+//   padding: '8px',
+//   border: '1px solid #ccc',
+//   borderRadius: '16px'
+// }
+
+// const img = {
+//   width: '50px',
+//   height: '50px',
+//   borderRadius: '50%'
+// }
+
+// const container = {
+//   display: 'flex',
+//   flexDirection: 'column',
+//   justifyContent: 'center',
+//   marginLeft: '8px'
+// }
+
+// const nameText = {
+//   fontSize: '18px',
+//   fontWeight: 'bold'
+// }
+
+// const commentText = {
+//   fontSize: '14px'
+// }
+
+
+// const Comment = (props) => {
+//   return (
+//     <div className='wrapper'>
+//       <div className="comment">
+//         <div className='img'>
+//           <img src={logo} alt="냐오하" />
+//         </div>
+//           <div className="text">
+//             <h1>{props.user}</h1>
+//             <p>{props.comment}</p>
+//           </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+function Comment(props) {
+  return (
+    <div className='wrapper' style={styles.wrapper}>
+      <div className='img-box'>
+        <img style={styles.img} src={logo} alt='냐오하'></img>
+      </div>
+
+      <div className='content-container' style={styles.container}>
+        <span className='name-text' style={styles.nameText}>{props.name}</span>
+        <span className='comment-text' style={styles.commentText}>{props.comment}</span>
+      </div>
+    </div>
+  )
+}
+
+export default Comment;

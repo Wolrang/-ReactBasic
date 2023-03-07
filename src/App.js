@@ -3,6 +3,8 @@ import './App.css';
 import State from './component/State';
 import {useState} from 'react'
 import Box from './component/Box';
+import Comment from './component/Comment';
+import CommentList from './component/CommentList';
 
 function App() {
   // State에 반응하기 때문에 react
@@ -47,6 +49,8 @@ function App() {
   // State는 기존 값을 잃어버리지 않고 기억하고 있다.
   let [box, setBox] = useState([1, 2, 3, 4])
   let [name, setName] = useState(['Smith', 'Sam', 'Curry', 'bell' ])
+  let [user, setUser] = useState(['라라라', '로로로', '리리리']);
+  let [comment, setComment] = useState(['Lorem', 'Lorem', 'Lorem']);
  return (
   <div className='App'>
     {/* <State></State> */}
@@ -59,13 +63,27 @@ function App() {
       <Box num='4' name='Bell'></Box> */} 
     </div>
 
-    {
+    {/* {
     box.map(function (a, i) {
       return (
         <Box key={i} num={box[i]} name={name[i]}></Box>
       )
     })
-    }
+    } */}
+
+    {/* {
+      user.map(function (a,i) {
+        return (
+          <Comment user={user[i]} comm ent={comment[i]}></Comment>
+        )
+      })
+    } */}
+
+    {/* <Comment user='라라라' Comment='Lorem'></Comment>
+    <Comment user='로로로' Comment='Lorem'></Comment>
+    <Comment user='리리리' Comment='Lorem'></Comment> */}
+
+    <CommentList></CommentList>
 
   </div>
  );
