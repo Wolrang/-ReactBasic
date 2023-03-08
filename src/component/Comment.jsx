@@ -89,7 +89,7 @@ const styles = {
 //   )
 // }
 
-function Comment(props, onRemove) {
+function Comment(props) {
   // const [show, setShow] = useState(false);
 
   return (
@@ -102,7 +102,9 @@ function Comment(props, onRemove) {
         <span className='name-text' style={styles.nameText}>{props.name}</span>
         <span className='comment-text' style={styles.commentText}>{props.comment}</span>
       </div>
-      <button onClick={() => onRemove(props.id)}>X</button>
+
+      <button onClick={props.onDelete}>X</button>
+
       {/* <div style={styles.button}>
         <button onClick={() => {
           setShow(!show);
