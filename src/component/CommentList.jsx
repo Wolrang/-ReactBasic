@@ -68,6 +68,12 @@ function CommentList() {
     });
   };
 
+  const handleOnKeyPress = e => {
+    if (e.key === 'Enter') {
+      addComment();
+    }
+  };
+
   return (
     <div>
       {
@@ -91,7 +97,8 @@ function CommentList() {
       type="text" 
       name="comment" 
       value={comment} 
-      onChange={changeComment}>
+      onChange={changeComment}
+      onKeyPress={handleOnKeyPress}>
        </input>
 
       <button onClick={addComment}>글 추가</button>
