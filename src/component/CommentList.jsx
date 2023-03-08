@@ -15,6 +15,17 @@ const comments = [
   }
 ]
 
+const newComments = [
+  {
+    name : "김상현4",
+    comment : "Lorem4",
+  },
+  {
+    name : "김상현5",
+    comment : "Lorem5"
+  }
+]
+
 function CommentList() {
   const [commentList, setCommentList] = useState(comments);
 
@@ -25,6 +36,38 @@ function CommentList() {
     setCommentList(newCommentList);
   }
 
+  const [inputs, setInputs] = useState({
+    name : "",
+    comment : ""
+  })
+
+  const {name, comment} = inputs;
+
+  const addComment = () => {
+    //   const add = {name: "ㅎㅎㅎ", comment: "ㅇㅇㅇㅇ"}
+    //   setCommentList([add, ...commentList]);
+
+    //   const newCommentList = ([...newComments, ...comments])
+    //   setCommentList(newCommentList)
+
+    const add = { name, comment }
+    setCommentList([add, ...commentList])
+
+    setInputs({
+      name: '',
+      comment: '',
+    });
+  }
+
+  const changeComment = (e) => {
+    const { name, value } = e.target;
+
+    setInputs({
+      ...inputs,
+      [name]: value
+    });
+  };
+
   return (
     <div>
       {
@@ -34,6 +77,24 @@ function CommentList() {
           )
         })
       }
+      
+      이름 : 
+      <input 
+      type="text" 
+      name="name" 
+      value={name} 
+      onChange={changeComment}>
+      </input>
+
+      댓글 : 
+      <input 
+      type="text" 
+      name="comment" 
+      value={comment} 
+      onChange={changeComment}>
+       </input>
+
+      <button onClick={addComment}>글 추가</button>
     </div>
   )
 }
