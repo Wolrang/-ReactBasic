@@ -56,7 +56,7 @@ function CommentList() {
     setInputs({
       name: '',
       comment: '',
-    });
+    })
   }
 
   const changeComment = (e) => {
@@ -68,11 +68,19 @@ function CommentList() {
     });
   };
 
-  const handleOnKeyPress = e => {
-    if (e.key === 'Enter') {
-      addComment();
-    }
-  };
+  const handleOnKeyPress = (e) => {
+    e.key == "Enter" && name === '' || comment === '' ? alert('이름과 댓글을 입력하세요.') : (
+      (() => {
+        const add = { name, comment }
+        setCommentList([add, ...commentList])
+
+        setInputs({
+          name: '',
+          comment: '',
+        })
+      })()
+    )
+  }
 
   return (
     <div>
@@ -89,7 +97,8 @@ function CommentList() {
       type="text" 
       name="name" 
       value={name} 
-      onChange={changeComment}>
+      onChange={changeComment}
+      onKeyPress={handleOnKeyPress}>
       </input>
 
       댓글 : 
@@ -119,16 +128,38 @@ function CommentList() {
 //     console.log(index)
 //   }
 
-//   const addComment = () => {
-//     // const add = {name: "히히ㅇㅎㅇㄶ히", comment : "아아아아아?~!!!"}
-//     // setCommentList([add,...commentList])
+//   // 기존 list 추가 함수
+//   // const addComment = () => {
+//   //   // const add = {name: "히히ㅇㅎㅇㄶ히", comment : "아아아아아?~!!!"}
+//   //   // setCommentList([add,...commentList])
 
-//     const add = {name : name, comment: content}
-//     setCommentList([add,...commentList])
-//     // state변경 함수에 빈 문자열을 넣어서 input에 작성된 내용을 초기화
-//     setName('')
-//     setContent('')
-//   }
+//   //   const add = {name : name, comment: content}
+//   //   setCommentList([add,...commentList])
+//   //   // state변경 함수에 빈 문자열을 넣어서 input에 작성된 내용을 초기화
+//   //   setName('')
+//   //   setContent('')
+//   // }
+
+
+//   // 삼항 연산자로 value가 빈 값일 때 list 추가되지 않게 하는 기능 추가
+//   const addComment = () => {
+//     // name, content에 value값이 없을 때 (조건)
+//     // true일 때 alert('이름과 댓글을 입력하세요')
+//     name === '' || content === '' ? alert('이름과 댓글을 입력하세요') : (
+
+//       // IIFE (즉시 실행 함수)
+//       // false일 때(name, content에 value값이 있을 때) 아래 함수가 즉시 실행되게 한다.
+//       (()=>{
+//         // add라는 새로운 객체 생성
+//         const add = {name : name, comment: content}
+//         // 기존 commentList 앞에 add를 넣어서 add를 더한 새로운 객체를 생성한다.
+//         setCommentList([add,...commentList])
+//         // state변경 함수로 input에 들어있는 값을 초기화 한다.
+//         setName('')
+//         setContent('')
+//       })()
+//     )
+//   };
 
 //   return (
 //     <div>

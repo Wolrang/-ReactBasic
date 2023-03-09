@@ -85,7 +85,7 @@ function App() {
     <Comment user='로로로' Comment='Lorem'></Comment>
     <Comment user='리리리' Comment='Lorem'></Comment> */}
 
-    {/* <CommentList></CommentList> */}
+    <CommentList></CommentList>
 
     {/* <div style={{backgroundImage : 'url(' + back + ')', height : '400px'}}></div> */}
     {/* <div style={{backgroundImage : `url(${back})`, height : '400px'}}></div> */}
@@ -94,7 +94,7 @@ function App() {
 
     {/* <div style={{backgroundImage : 'url(https://m.media-amazon.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_FMjpg_UX1000_.jpg)', height : '300px'}}></div> */}
     {/* <img src="https://m.media-amazon.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_FMjpg_UX1000_.jpg" alt="" /> */}
-    <img src={back} alt='back'></img>
+    {/* <img src={back} alt='back'></img> */}
 
   </div>
  );
