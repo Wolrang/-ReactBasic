@@ -5,6 +5,8 @@ import {useState} from 'react'
 import Box from './component/Box';
 import Comment from './component/Comment';
 import CommentList from './component/CommentList';
+import back from './images/배경화면1.jpeg'
+
 
 function App() {
   // State에 반응하기 때문에 react
@@ -83,8 +85,16 @@ function App() {
     <Comment user='로로로' Comment='Lorem'></Comment>
     <Comment user='리리리' Comment='Lorem'></Comment> */}
 
-    <CommentList></CommentList>
-    
+    {/* <CommentList></CommentList> */}
+
+    {/* <div style={{backgroundImage : 'url(' + back + ')', height : '400px'}}></div> */}
+    {/* <div style={{backgroundImage : `url(${back})`, height : '400px'}}></div> */}
+    {/* public에 있는 index.html이 기준 */}
+    {/* <img src={process.env.PUBLIC_URL + '/images/배경화면2.jpeg'} /> */}
+
+    {/* <div style={{backgroundImage : 'url(https://m.media-amazon.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_FMjpg_UX1000_.jpg)', height : '300px'}}></div> */}
+    {/* <img src="https://m.media-amazon.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_FMjpg_UX1000_.jpg" alt="" /> */}
+    <img src={back} alt='back'></img>
 
   </div>
  );

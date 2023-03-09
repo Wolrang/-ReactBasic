@@ -1,6 +1,6 @@
 import React from 'react'
 // import './Comment.css'
-import logo from './images/냐오하.jpg'
+// import logo from './images/냐오하.jpg'
 import {useState} from 'react'
 import CommentList from './CommentList';
 
@@ -95,7 +95,7 @@ function Comment(props) {
   return (
     <div className='wrapper' style={styles.wrapper}>
       <div className='img-box'>
-        <img style={styles.img} src={logo} alt='냐오하'></img>
+        {/* <img style={styles.img} src={logo} alt='냐오하'></img> */}
       </div>
 
       <div className='content-container' style={styles.contentContainer}>
